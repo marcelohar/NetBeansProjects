@@ -115,6 +115,13 @@ public class Principal extends JFrame {
             }       
             });
             
+            iCadastrar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                CadastroFood c = new CadastroFood();
+            }
+            });
+            
             //painel botões
             btnSair.addActionListener(new ActionListener(){
             @Override
