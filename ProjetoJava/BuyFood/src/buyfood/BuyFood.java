@@ -4,7 +4,7 @@
  */
 package buyfood;
 
-import buyfood.BuyFood; // estava dando erro falando que não encontrava a classe
+//import buyfood.BuyFood; // estava dando erro falando que não encontrava a classe
 import telas.Principal;
 
 /**

@@ -1,17 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package telas;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 /**
  *
@@ -36,7 +35,18 @@ public class CadastroFood extends JDialog{
     // CONSTRUTOR
     //---------------------------------------- 
     public CadastroFood(){
-        initialize();    
+        this.initialize(); 
+        this.setModal(true);
+        /*
+        modal - especifica se a caixa de diálogo bloqueia
+        a entrada para outras janelas quando mostrada; 
+        chamar para setModal(true) é equivalente a 
+        setModalityType(Dialog.DEFAULT_MODALITY_TYPE) e 
+        chamar para setModal(false) é equivalente a 
+        setModalityType(Dialog.ModalityType.MODELESS)
+        */
+        
+        this.setAlwaysOnTop(true);       
     
     }
     
@@ -82,6 +92,15 @@ public class CadastroFood extends JDialog{
         
         painelCadfood.add(btnSalvar);
         painelCadfood.add(btnCancelar);
+        
+        //configurar buttons
+        btnCancelar.addActionListener(new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e){
+            setVisible(false);
+            dispose();        
+        }
+        });
         
         this.add(painelCadfood);
         this.setBounds(0, 0, 400, 200);

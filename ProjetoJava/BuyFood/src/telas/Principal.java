@@ -44,7 +44,8 @@ public class Principal extends JFrame {
     // CONSTRUTOR
     //----------------------------------------
         public Principal(){
-            initialize();    
+            this.initialize(); 
+            this.setExtendedState(NORMAL);
 
         }
     
@@ -103,7 +104,8 @@ public class Principal extends JFrame {
         
        
         //configurar botoes
-            //menu  
+            //menu 
+            
             iSair.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -121,6 +123,13 @@ public class Principal extends JFrame {
                 dispose();
                 System.exit(0);
             }
+            });
+            
+            btnCadastrar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                CadastroFood c = new CadastroFood();
+            }            
             });
             /*************************************************************************
              * proxima etapa, criar a tela de cadastro.
