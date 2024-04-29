@@ -36,7 +36,7 @@ public class CadastroFood extends JDialog{
     //---------------------------------------- 
     public CadastroFood(){
         this.initialize(); 
-        this.setModal(true);
+        
         /*
         modal - especifica se a caixa de diálogo bloqueia
         a entrada para outras janelas quando mostrada; 
@@ -46,7 +46,8 @@ public class CadastroFood extends JDialog{
         setModalityType(Dialog.ModalityType.MODELESS)
         */
         
-        this.setAlwaysOnTop(true);       
+        this.setAlwaysOnTop(true); 
+        this.setModal(true);
     
     }
     
@@ -98,9 +99,14 @@ public class CadastroFood extends JDialog{
         @Override
         public void actionPerformed(ActionEvent e){
             setVisible(false);
-            dispose();        
+            dispose(); 
+            Principal.getInstance().requestFocus(); // Restaura o foco para a janela principal
         }
         });
+        
+        /****************************************************************************************
+         * nao pegou o foco na janela principal depois de fechar a janela de cadastrpo        
+         */
         
         this.add(painelCadfood);
         this.setBounds(0, 0, 400, 200);

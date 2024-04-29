@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,11 +41,13 @@ public class Principal extends JFrame {
         private JMenuBar bMenu;
         private JMenu mIniciar;
         private JMenuItem iCadastrar, iSair;
+        
+        private static Principal instance;                  // Variável para pegar uma única instância da clase
     
     //----------------------------------------
     // CONSTRUTOR
     //----------------------------------------
-        public Principal(){
+        private Principal(){                                // tive que deixar o construtor privado para que possa ser chamado somente por aqui e com isso poder criar uma única instância
             this.initialize(); 
             this.setExtendedState(NORMAL);
 
@@ -52,6 +56,16 @@ public class Principal extends JFrame {
     //----------------------------------------
     // FUNÇÕES DA CLASSE
     //----------------------------------------
+        
+           
+        public static Principal getInstance(){              // Método estático para obter a instância única da classe 
+            if (instance == null) {
+                instance = new Principal();
+            }
+        return instance;
+        }
+
+        
     public void initialize(){
         //iniciar variáveis
         
@@ -132,16 +146,25 @@ public class Principal extends JFrame {
             }
             });
             
+            
+           
+            
             btnCadastrar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 CadastroFood c = new CadastroFood();
+                setEnabled(false);                                  //desabilita a tela principal quando abrir a de cadastro
+                
+                c.addWindowListener(new WindowAdapter(){
+                
+                public void windowClosed(WindowEvent e){            // tem que  import java.awt.event.WindowEvent;
+                    setEnabled(true);                               //habilita a tela principal quando fechar a tela de cadastro
+                }                
+                });              
+                
             }            
             });
-            /*************************************************************************
-             * proxima etapa, criar a tela de cadastro.
-             * 
-             */
+           
         
         
         //configurar tela

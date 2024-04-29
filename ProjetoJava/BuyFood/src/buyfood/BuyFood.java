@@ -4,7 +4,7 @@
  */
 package buyfood;
 
-//import buyfood.BuyFood; // estava dando erro falando que não encontrava a classe
+import buyfood.BuyFood; //ora funciona ora dá erro falando que não encont a classe
 import telas.Principal;
 
 /**
@@ -19,7 +19,7 @@ public class BuyFood {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Principal t = new Principal();
+        Principal t = Principal.getInstance();
     }
     
 }
