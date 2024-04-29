@@ -98,9 +98,11 @@ public class CadastroFood extends JDialog{
         btnCancelar.addActionListener(new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e){
+            Principal.getInstance().toFront();          // Restaura o foco para a janela principal
+            // Principal.getInstance().requestFocus();   // Não deu! Restaura o foco para a janela principal
             setVisible(false);
             dispose(); 
-            Principal.getInstance().requestFocus(); // Restaura o foco para a janela principal
+            
         }
         });
         

@@ -58,12 +58,12 @@ public class Principal extends JFrame {
     //----------------------------------------
         
            
-        public static Principal getInstance(){              // Método estático para obter a instância única da classe 
-            if (instance == null) {
-                instance = new Principal();
-            }
-        return instance;
+    public static Principal getInstance(){              // Método estático para obter a instância única da classe 
+        if (instance == null) {
+            instance = new Principal();
         }
+    return instance;
+    }
 
         
     public void initialize(){
@@ -150,21 +150,23 @@ public class Principal extends JFrame {
            
             
             btnCadastrar.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                CadastroFood c = new CadastroFood();
-                setEnabled(false);                                  //desabilita a tela principal quando abrir a de cadastro
-                
-                c.addWindowListener(new WindowAdapter(){
-                
-                public void windowClosed(WindowEvent e){            // tem que  import java.awt.event.WindowEvent;
-                    setEnabled(true);                               //habilita a tela principal quando fechar a tela de cadastro
-                }                
-                });              
-                
-            }            
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    CadastroFood c = new CadastroFood();
+                    setEnabled(false);                                  //desabilita a tela principal quando abrir a de cadastro
+
+                    c.addWindowListener(new WindowAdapter(){
+
+                    @Override
+                    public void windowClosed(WindowEvent e){            // tem que  import java.awt.event.WindowEvent;
+                        setEnabled(true);                               //habilita a tela principal quando fechar a tela de cadastro
+                    }   
+
+                    });  
+                }            
             });
            
+                   
         
         
         //configurar tela
