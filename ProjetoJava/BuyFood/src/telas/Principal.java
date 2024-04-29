@@ -42,7 +42,7 @@ public class Principal extends JFrame {
         private JMenu mIniciar;
         private JMenuItem iCadastrar, iSair;
         
-        private static Principal instance;                  // Variável para pegar uma única instância da clase
+        private static Principal instTelaPric;                  // Variável para pegar uma única instância da clase
     
     //----------------------------------------
     // CONSTRUTOR
@@ -58,11 +58,11 @@ public class Principal extends JFrame {
     //----------------------------------------
         
            
-    public static Principal getInstance(){              // Método estático para obter a instância única da classe 
-        if (instance == null) {
-            instance = new Principal();
+    public static Principal getInstTelaPric(){              // Método estático para obter a instância única da classe 
+        if (instTelaPric == null) {
+            instTelaPric = new Principal();
         }
-    return instance;
+    return instTelaPric;
     }
 
         

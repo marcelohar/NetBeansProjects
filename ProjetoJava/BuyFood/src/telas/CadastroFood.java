@@ -1,5 +1,6 @@
 package telas;
 
+import conexoes.DAOproduto;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -95,10 +96,18 @@ public class CadastroFood extends JDialog{
         painelCadfood.add(btnCancelar);
         
         //configurar buttons
+        btnSalvar.addActionListener(new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e){
+            DAOproduto dao = DAOproduto.getInstanceDaoProd();
+        }
+        });
+        
+        
         btnCancelar.addActionListener(new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e){
-            Principal.getInstance().toFront();          // Restaura o foco para a janela principal
+            Principal.getInstTelaPric().toFront();          // Restaura o foco para a janela principal
             // Principal.getInstance().requestFocus();   // Não deu! Restaura o foco para a janela principal
             setVisible(false);
             dispose(); 

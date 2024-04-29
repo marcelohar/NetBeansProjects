@@ -19,7 +19,7 @@ public class BuyFood {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Principal t = Principal.getInstance();
+        Principal t = Principal.getInstTelaPric();
     }
     
 }
